@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		id="com.kordit.ios.splashlock"
+		version="0.1">
+
+	<name>OrientationLock</name>
+	<author>Emil Varga</author>
+
+	<description>
+		iOS plugin to lock splash screen orientation during splash screen display
+	</description>
+
+	<js-module src="www/SplashLock.js" name="SplashLock">
+		<clobbers target="SplashLock" />
+	</js-module>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+	
+	<platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="SplashLock">
+                <param name="ios-package" value="SplashLock" />
+            </feature>
+        </config-file>
+
+        <!-- Note: the ios src is based off src/ios implicitly -->
+        <header-file src="src/ios/SplashLock.h" />
+        <source-file src="src/ios/SplashLock.m" />
+		<framework src="CoreGraphics.framework" />
+    </platform>
+	
+</plugin>
